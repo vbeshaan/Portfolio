@@ -1,91 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eshaan Vasanthakumar - Mechanical Engineering Portfolio</title>
+    <title>Eshaan Vasanthakumar &mdash; Mechanical Engineering Portfolio</title>
+    <!-- Modern CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modern-styles-enhanced.css">
+    <!-- Variable Font for Crisp Modern Text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preload Optimizations & Modern Meta Tags -->
+    <meta name="description" content="Portfolio of Eshaan Vasanthakumar, Mechanical Engineering Student. Expertise in robotics, AI-driven healthcare solutions, and sustainable engineering.">
+    <meta name="theme-color" content="#181926">
+    <!-- Favicon (Optional) -->
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+    <!-- Chart.js for Data Visualizations -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar glass-nav" role="navigation" aria-label="Main Navigation" data-animate="fade-down">
         <div class="nav-container">
             <div class="nav-logo">
-                <h3>Eshaan Vasanthakumar</h3>
+                <h1 class="navbar-title">Eshaan Vasanthakumar</h1>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#research" class="nav-link">Research</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
+            <ul class="nav-menu" role="menubar" aria-label="Main Menu">
+                <li class="nav-item"><a href="#home" class="nav-link" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#research" class="nav-link">Research</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="nav-toggle">
+            <button class="nav-toggle" aria-label="Open Navigation Menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
+            <button class="theme-switch" id="themeSwitchBtn" aria-label="Switch Theme"></button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" data-animate="fade-up">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Eshaan Vasanthakumar</h1>
+                <h1 class="hero-title text-gradient">Eshaan Vasanthakumar</h1>
                 <p class="hero-subtitle">Mechanical Engineering Student & Robotics Systems Engineer</p>
                 <p class="hero-description">Passionate about robotics systems, AI-driven healthcare solutions, and sustainable engineering design.<br>Currently pursuing Mechanical engineering at the University of Illinois Urbana-Champaign.</p>
                 <div class="hero-actions">
-                    <a href="#experience" class="btn btn--primary btn--lg">View My Experience</a>
-                    <a href="#contact" class="btn btn--outline btn--lg">Get In Touch</a>
+                    <a href="#experience" class="btn btn--primary btn--lg liquid-btn" data-magnetic="0.3">View My Experience</a>
+                    <a href="#contact" class="btn btn--outline btn--lg liquid-btn" data-magnetic="0.3">Get In Touch</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about glass-section" data-animate="fade-up">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <h2>About Me</h2>
                     <p>Passionate mechanical engineering student at the University of Illinois Urbana-Champaign with extensive experience in robotics systems, AI-driven healthcare solutions, and sustainable engineering design. Proven track record in multidisciplinary collaboration, project leadership, and innovative problem-solving across diverse technical domains.</p>
-                    
                     <div class="education-info">
                         <h3>Education</h3>
-                        <div class="education-item">
+                        <div class="education-item holographic-card">
                             <h4>University of Illinois Urbana-Champaign</h4>
                             <p class="degree">Bachelor of Science in Mechanical Engineering</p>
                             <p class="duration">2024-2028</p>
                             <p class="coursework"><strong>Relevant Coursework:</strong> ME 270 - Design for Manufacturability, Advanced Product Design</p>
                         </div>
-                        <div class="education-item">
+                        <div class="education-item holographic-card">
                             <h4>Study Hall</h4>
                             <p class="degree">High School Diploma</p>
                             <p class="skills-gained">Skills gained: Digital Media, Video Editing, Adobe Photoshop, Video Production</p>
                         </div>
                     </div>
-
                     <div class="certifications-info">
                         <h3>Certifications</h3>
-                        <div class="certification-item">
+                        <div class="certification-item holographic-card">
                             <h4>Introduction to Programming Using Python</h4>
                             <p class="issuer">University of Michigan</p>
                         </div>
@@ -96,12 +91,11 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience" data-animate="fade-up">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            
             <!-- xTerra Robotics -->
-            <div class="experience-card">
+            <div class="experience-card holographic-card" data-animate="fade-up">
                 <div class="experience-header">
                     <div class="company-info">
                         <h3>Robotics Systems Intern</h3>
@@ -111,9 +105,7 @@
                             <span class="location">IIT Kanpur, India</span>
                         </div>
                     </div>
-                    <div class="company-logo">
-                        <div class="logo-placeholder">xTerra</div>
-                    </div>
+                    <div class="company-logo glassmorphism"><div class="logo-placeholder">xTerra</div></div>
                 </div>
                 <div class="experience-content">
                     <p class="role-description">Created scripts and control stacks for COBOT-C1.</p>
@@ -131,9 +123,8 @@
                     </div>
                 </div>
             </div>
-
             <!-- India Health Action Trust -->
-            <div class="experience-card">
+            <div class="experience-card holographic-card" data-animate="fade-up">
                 <div class="experience-header">
                     <div class="company-info">
                         <h3>Student Intern</h3>
@@ -143,9 +134,7 @@
                             <span class="location">Uttar Pradesh, India</span>
                         </div>
                     </div>
-                    <div class="company-logo">
-                        <div class="logo-placeholder">IHAT</div>
-                    </div>
+                    <div class="company-logo glassmorphism"><div class="logo-placeholder">IHAT</div></div>
                 </div>
                 <div class="experience-content">
                     <p class="role-description">AI-Driven Cataract Screening: Co-developed the Roshni app with AI specialists, statisticians, and healthcare professionals for rural India.</p>
@@ -165,9 +154,8 @@
                     </div>
                 </div>
             </div>
-
             <!-- Study Hall -->
-            <div class="experience-card">
+            <div class="experience-card holographic-card" data-animate="fade-up">
                 <div class="experience-header">
                     <div class="company-info">
                         <h3>Event Coordinator</h3>
@@ -177,9 +165,7 @@
                             <span class="location">Lucknow, Uttar Pradesh, India</span>
                         </div>
                     </div>
-                    <div class="company-logo">
-                        <div class="logo-placeholder">SH</div>
-                    </div>
+                    <div class="company-logo glassmorphism"><div class="logo-placeholder">SH</div></div>
                 </div>
                 <div class="experience-content">
                     <p class="role-description">Led a multidisciplinary team, delegated roles, and coordinated regular progress updates.</p>
@@ -203,12 +189,11 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects" data-animate="fade-up">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            
             <!-- RetroLens Project -->
-            <div class="project-card">
+            <div class="project-card holographic-card" data-animate="fade-up">
                 <div class="project-header">
                     <h3>RetroLens Pro X-Adapter</h3>
                     <p class="project-subtitle">Sustainable Camera Lens Adapter Design</p>
@@ -220,11 +205,10 @@
                 </div>
                 <div class="project-content">
                     <div class="project-overview">
-                        <div class="key-achievement">
+                        <div class="key-achievement glassmorphism">
                             <strong>Key Achievement:</strong> 85% cost reduction compared to competitors ($13-17 vs $89-129) with 138% assembly efficiency improvement
                         </div>
                         <p>Innovative adapter system repurposing disposable camera lenses for modern mirrorless cameras, focusing on sustainable engineering through lens recovery and reuse.</p>
-                        
                         <div class="project-highlights">
                             <h4>Key Achievements:</h4>
                             <ul>
@@ -233,7 +217,6 @@
                                 <li>60% part count reduction through design optimization</li>
                                 <li>Sustainable engineering through lens recovery and reuse</li>
                             </ul>
-                            
                             <h4>Technical Highlights:</h4>
                             <ul>
                                 <li>Advanced GD&T and tolerancing capabilities</li>
@@ -242,19 +225,18 @@
                                 <li>Cost analysis and competitive benchmarking</li>
                             </ul>
                         </div>
-
                         <!-- Charts Section -->
                         <div class="project-charts">
                             <h4>Data Visualizations:</h4>
                             <div class="charts-grid">
-                                <div class="chart-container">
+                                <div class="chart-container glassmorphism">
                                     <h5>Cost Comparison Analysis</h5>
                                     <div class="chart-wrapper" style="position: relative; height: 300px;">
                                         <canvas id="retrolensCostChart"></canvas>
                                     </div>
                                     <p class="chart-description">85% Cost Reduction Achieved</p>
                                 </div>
-                                <div class="chart-container">
+                                <div class="chart-container glassmorphism">
                                     <h5>Assembly Efficiency Improvement</h5>
                                     <div class="chart-wrapper" style="position: relative; height: 300px;">
                                         <canvas id="retrolensEfficiencyChart"></canvas>
@@ -263,7 +245,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="materials-processes">
                             <div class="materials">
                                 <h4>Materials:</h4>
@@ -281,9 +262,8 @@
                     </div>
                 </div>
             </div>
-
             <!-- Fusion Desk Project -->
-            <div class="project-card">
+            <div class="project-card holographic-card" data-animate="fade-up">
                 <div class="project-header">
                     <h3>Fusion Desk Ergonomic System</h3>
                     <p class="project-subtitle">Comprehensive Ergonomic Workspace Solution</p>
@@ -295,11 +275,10 @@
                 </div>
                 <div class="project-content">
                     <div class="project-overview">
-                        <div class="key-achievement">
+                        <div class="key-achievement glassmorphism">
                             <strong>Key Achievement:</strong> Complex system design with 29 total components and comprehensive cost analysis totaling $859.07
                         </div>
                         <p>Complex ergonomic desk system with integrated laptop stand, storage, and LED lighting, demonstrating multi-material system design expertise.</p>
-                        
                         <div class="project-highlights">
                             <h4>Key Achievements:</h4>
                             <ul>
@@ -308,7 +287,6 @@
                                 <li>Multi-material system design expertise</li>
                                 <li>Identified 56% potential cost reduction through optimization</li>
                             </ul>
-                            
                             <h4>Technical Highlights:</h4>
                             <ul>
                                 <li>Multi-material integration (aluminum, steel, polycarbonate)</li>
@@ -317,12 +295,11 @@
                                 <li>Business analysis and market positioning capabilities</li>
                             </ul>
                         </div>
-
                         <!-- Charts Section -->
                         <div class="project-charts">
                             <h4>Data Visualizations:</h4>
                             <div class="charts-grid">
-                                <div class="chart-container">
+                                <div class="chart-container glassmorphism">
                                     <h5>Cost Breakdown Analysis</h5>
                                     <div class="chart-wrapper" style="position: relative; height: 300px;">
                                         <canvas id="fusionDeskCostChart"></canvas>
@@ -331,7 +308,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="materials-processes">
                             <div class="materials">
                                 <h4>Materials:</h4>
@@ -350,9 +326,8 @@
                     </div>
                 </div>
             </div>
-
             <!-- SeaGuardian Project -->
-            <div class="project-card">
+            <div class="project-card holographic-card" data-animate="fade-up">
                 <div class="project-header">
                     <h3>SeaGuardian Drone</h3>
                     <p class="project-subtitle">Semi-Autonomous Lifeguard Rescue Drone System</p>
@@ -364,7 +339,7 @@
                 </div>
                 <div class="project-content">
                     <div class="project-overview">
-                        <div class="competition-notice">
+                        <div class="competition-notice glassmorphism">
                             <strong>Design Competition Entry:</strong> This project was created for the Illinois Design Challenge, a competitive 2-day CAD modeling competition. The concept was fully designed and CAD modeled with comprehensive implementation plans, but was not physically manufactured or built.
                         </div>
                         <p>Innovative semi-autonomous lifeguard rescue drone featuring AI-powered drowning detection and precision life preserver deployment system. This comprehensive design demonstrates advanced integration of thermal imaging, autonomous flight control, and emergency response systems.</p>
@@ -395,27 +370,27 @@
                         <div class="implementation-plan">
                             <h4>Implementation Strategy (Conceptual):</h4>
                             <div class="implementation-grid">
-                                <div class="implementation-item">
+                                <div class="implementation-item glassmorphism">
                                     <h5>Deployment Protocol</h5>
                                     <p>Station at lifeguard posts or vessels with VTOL capability for immediate response to emergency situations.</p>
                                 </div>
-                                <div class="implementation-item">
+                                <div class="implementation-item glassmorphism">
                                     <h5>Operational Parameters</h5>
                                     <p>Passive patrol at 150-200 feet altitude with continuous thermal scanning and pattern recognition.</p>
                                 </div>
-                                <div class="implementation-item">
+                                <div class="implementation-item glassmorphism">
                                     <h5>AI Detection System</h5>
                                     <p>Advanced thermal imaging algorithms trained on drowning behavior patterns for real-time water surface analysis.</p>
                                 </div>
-                                <div class="implementation-item">
+                                <div class="implementation-item glassmorphism">
                                     <h5>Emergency Response</h5>
                                     <p>Autonomous descent to 10-30 feet altitude for precise life preserver deployment within 1-3 feet accuracy.</p>
                                 </div>
-                                <div class="implementation-item">
+                                <div class="implementation-item glassmorphism">
                                     <h5>Control Systems</h5>
                                     <p>Manual RC override capabilities with autonomous AI deployment and machine learning optimization.</p>
                                 </div>
-                                <div class="implementation-item">
+                                <div class="implementation-item glassmorphism">
                                     <h5>Recovery Protocol</h5>
                                     <p>"Back to Home" feature for automatic return, battery management, and payload refitting cycles.</p>
                                 </div>
@@ -424,13 +399,13 @@
                         <div class="technical-challenges">
                             <h4>Technical Challenges Solved:</h4>
                             <div class="challenges-list">
-                                <div class="challenge-item">
+                                <div class="challenge-item glassmorphism">
                                     <strong>Water Surface Detection:</strong> Rejected sonar/LiDAR solutions due to water surface reflection limitations, implementing thermal imaging for superior surface disruption detection.
                                 </div>
-                                <div class="challenge-item">
+                                <div class="challenge-item glassmorphism">
                                     <strong>Flight Stability:</strong> Solved center of gravity challenges by strategically positioning speakers/batteries opposite heavy camera systems for optimal weight distribution.
                                 </div>
-                                <div class="challenge-item">
+                                <div class="challenge-item glassmorphism">
                                     <strong>Pattern Recognition:</strong> Developed water disruption pattern recognition algorithms specifically for drowning detection using AI computer vision.
                                 </div>
                             </div>
@@ -459,25 +434,25 @@
     </section>
 
     <!-- Research & Publications Section -->
-    <section id="research" class="research">
+    <section id="research" class="research glass-section" data-animate="fade-up">
         <div class="container">
             <h2 class="section-title">Research & Publications</h2>
             <ul>
                 <li>
                     <b>Development and Testing of Artificial Intelligence-Based Mobile Application to Achieve Cataract Backlog-Free Status in Uttar Pradesh, India</b><br>
                     <i>Asia Pac J Ophthalmol (Phila). 2024 Sep-Oct;13(5):100094.</i><br>
-                    <a href="https://pubmed.ncbi.nlm.nih.gov/39187013/" target="_blank">View on PubMed</a>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/39187013/" target="_blank" rel="noopener">View on PubMed</a>
                 </li>
             </ul>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills glass-section" data-animate="fade-up">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-category holographic-card">
                     <h3>Programming & Systems</h3>
                     <ul>
                         <li>Robot Operating System (ROS 2)</li>
@@ -488,18 +463,18 @@
                         <li>Linux</li>
                     </ul>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category holographic-card">
                     <h3>Engineering & Design</h3>
                     <ul>
                         <li>Fusion360, Solidworks</li>
                         <li>Engineering Drawings</li>
-                        <li>Additive Manufacturing<li>
+                        <li>Additive Manufacturing</li>
                         <li>3D Printing</li>
                         <li>Robotics</li>
                         <li>Mechanical Engineering</li>
                     </ul>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category holographic-card">
                     <h3>Analysis & Research</h3>
                     <ul>
                         <li>Literature Reviews</li>
@@ -510,7 +485,7 @@
                         <li>Analytical Skills</li>
                     </ul>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category holographic-card">
                     <h3>Management & Business</h3>
                     <ul>
                         <li>Management</li>
@@ -522,7 +497,7 @@
                         <li>Training</li>
                     </ul>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category holographic-card">
                     <h3>Creative & Media</h3>
                     <ul>
                         <li>Event Photography</li>
@@ -534,7 +509,7 @@
                         <li>Graphic Design</li>
                     </ul>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category holographic-card">
                     <h3>Interpersonal Skills</h3>
                     <ul>
                         <li>Problem Solving</li>
@@ -549,36 +524,37 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact glass-section" data-animate="fade-up">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
-                    <div class="contact-item">
+                    <div class="contact-item glassmorphism">
                         <strong>University Email:</strong> eshaanv2@illinois.edu
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item glassmorphism">
                         <strong>Personal Email:</strong> vasanthakumareshaan@gmail.com
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item glassmorphism">
                         <strong>Phone:</strong> (217) 693-9338
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item glassmorphism">
                         <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/eshaanvasanthakumar15/" target="_blank">linkedin.com/in/eshaanvasanthakumar15</a>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item glassmorphism">
                         <strong>Location:</strong> Urbana-Champaign, Illinois
                     </div>
                     <div class="contact-actions">
-                        <a href="https://www.linkedin.com/in/eshaanvasanthakumar15/" target="_blank" class="btn btn--primary">View LinkedIn Profile</a>
+                        <a href="https://www.linkedin.com/in/eshaanvasanthakumar15/" target="_blank" class="btn btn--primary liquid-btn" data-magnetic="0.3">View LinkedIn Profile</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer glass-footer" role="contentinfo" data-animate="fade-up">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
@@ -597,6 +573,9 @@
         </div>
     </footer>
 
+    <!-- Modern JS -->
+    <script src="modern-portfolio-enhanced.js"></script>
+    <!-- Fallback: Old app JS for compatibility -->
     <script src="app.js"></script>
 </body>
 </html>
