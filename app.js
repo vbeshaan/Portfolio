@@ -8,9 +8,9 @@ const EXPERIENCE_DATABASE = [
         company: "Addverb",
         duration: "June 2026 - Present",
         location: "Noida, India",
-        description: "Research and development focusing on intralogistics and autonomous systems[cite: 2].",
+        description: "Research and development focusing on intralogistics and autonomous systems.",
         bullets: [
-            "Working on warehouse automation and autonomous mobile robots (AMRs) for intralogistics and material handling[cite: 2]."
+            "Working on warehouse automation and autonomous mobile robots (AMRs) for intralogistics and material handling."
         ],
         tags: ["Warehouse Automation", "AMRs", "Intralogistics"]
     },
@@ -19,10 +19,10 @@ const EXPERIENCE_DATABASE = [
         company: "Illinois Robotics in Space",
         duration: "August 2025 - May 2026",
         location: "Urbana-Champaign, IL",
-        description: "Engineered mechanical subassemblies for a Lunabotics planetary rover[cite: 2].",
+        description: "Engineered mechanical subassemblies for a Lunabotics planetary rover.",
         bullets: [
-            "Designed a linear-actuated bucket dispenser for a Lunabotics rover, enabling repeatable autonomous regolith dumping in a planetary robotics context[cite: 2].",
-            "Optimized regolith-handling geometry (clearances, dump angle, lip profile) to reduce clogging, bridging, and wear in granular material flow[cite: 2]."
+            "Designed a linear-actuated bucket dispenser for a Lunabotics rover, enabling repeatable autonomous regolith dumping in a planetary robotics context.",
+            "Optimized regolith-handling geometry (clearances, dump angle, lip profile) to reduce clogging, bridging, and wear in granular material flow."
         ],
         tags: ["CAD", "Planetary Robotics", "Mechanism Design"]
     },
@@ -31,12 +31,12 @@ const EXPERIENCE_DATABASE = [
         company: "xTerra Robotics",
         duration: "June 2025 - August 2025",
         location: "Kanpur, India",
-        description: "Created scripts and control stacks for robotic manipulators[cite: 2].",
+        description: "Created scripts and control stacks for robotic manipulators.",
         bullets: [
-            "Designed and fabricated an aluminum base plate and 3D-printed arm mount for a 6-DOF robot arm, improving robot integration safety and mechanical stiffness[cite: 2].",
-            "Developed Python scripts for coordinate transforms and trajectory planning of a 6-DOF manipulator, enabling smooth joint-space motion in simulation and hardware[cite: 2].",
-            "Tuned PD/PID controllers in the ROS control stack and validated tracking repeatability and accuracy against ISO 9283 robotics performance tests[cite: 2].",
-            "Authored interactive lab-style robotics experiments and documentation to teach robot kinematics, control, and system integration using real hardware[cite: 2]."
+            "Designed and fabricated an aluminum base plate and 3D-printed arm mount for a 6-DOF robot arm, improving robot integration safety and mechanical stiffness.",
+            "Developed Python scripts for coordinate transforms and trajectory planning of a 6-DOF manipulator, enabling smooth joint-space motion in simulation and hardware.",
+            "Tuned PD/PID controllers in the ROS control stack and validated tracking repeatability and accuracy against ISO 9283 robotics performance tests.",
+            "Authored interactive lab-style robotics experiments and documentation to teach robot kinematics, control, and system integration using real hardware."
         ],
         tags: ["ROS", "Python", "Kinematics", "Hardware Integration"]
     },
@@ -75,7 +75,7 @@ const PROJECTS_DATABASE = [
         title: "ROS 2 DWA Local Navigation Loop",
         subtitle: "Autonomous Mobile Robot Navigation Algorithm",
         meta: "Personal Project / Gazebo",
-        summary: "Implemented a custom Dynamic Window Approach (DWA) local planner in Python for a TurtleBot3 Burger[cite: 2].",
+        summary: "Implemented a custom Dynamic Window Approach (DWA) local planner in Python for a TurtleBot3 Burger.",
         tags: ["ROS 2", "Python", "Gazebo", "Algorithm Design"],
         
         imagePath: "images/ros2-dwa.jpg", 
@@ -88,9 +88,9 @@ const PROJECTS_DATABASE = [
         ],
         notesHtml: `
             <h3>Algorithm Architecture & Implementation</h3>
-            <p><strong>Navigation Node:</strong> Implemented a custom Dynamic Window Approach (DWA) local planner in Python for a TurtleBot3 Burger, subscribing to /odom and /scan and publishing /cmd_vel for autonomous mobile robot navigation in Gazebo[cite: 2].</p>
-            <p><strong>Trajectory Scoring:</strong> Sampled linear and angular velocities (v, w) within a dynamic window, simulated trajectories, and scored them with goal, heading, obstacle (LaserScan), smoothness, and progress costs[cite: 2].</p>
-            <p><strong>Validation:</strong> Used RViz MarkerArray and logs to debug local planner behavior and velocity command outputs[cite: 2].</p>
+            <p><strong>Navigation Node:</strong> Implemented a custom Dynamic Window Approach (DWA) local planner in Python for a TurtleBot3 Burger, subscribing to /odom and /scan and publishing /cmd_vel for autonomous mobile robot navigation in Gazebo.</p>
+            <p><strong>Trajectory Scoring:</strong> Sampled linear and angular velocities (v, w) within a dynamic window, simulated trajectories, and scored them with goal, heading, obstacle (LaserScan), smoothness, and progress costs.</p>
+            <p><strong>Validation:</strong> Used RViz MarkerArray and logs to debug local planner behavior and velocity command outputs.</p>
         `
     },
     {
