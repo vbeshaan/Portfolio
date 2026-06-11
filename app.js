@@ -1,358 +1,336 @@
-// Portfolio Website JavaScript - Eshaan Vasanthakumar
+// ==========================================
+// 🗂️ 1. YOUR DATABASE (Add/Edit Items Here)
+// ==========================================
 
-// Utility functions
-function $(selector, parent = document) {
-    return parent.querySelector(selector);
+const EXPERIENCE_DATABASE = [
+    {
+        role: "Research and Development Mechanical Engineering Intern",
+        company: "Addverb",
+        duration: "June 2026 - Present",
+        location: "Noida, India",
+        description: "Research and development focusing on intralogistics and autonomous systems[cite: 2].",
+        bullets: [
+            "Working on warehouse automation and autonomous mobile robots (AMRs) for intralogistics and material handling[cite: 2]."
+        ],
+        tags: ["Warehouse Automation", "AMRs", "Intralogistics"]
+    },
+    {
+        role: "Mechanical Subteam Member",
+        company: "Illinois Robotics in Space",
+        duration: "August 2025 - May 2026",
+        location: "Urbana-Champaign, IL",
+        description: "Engineered mechanical subassemblies for a Lunabotics planetary rover[cite: 2].",
+        bullets: [
+            "Designed a linear-actuated bucket dispenser for a Lunabotics rover, enabling repeatable autonomous regolith dumping in a planetary robotics context[cite: 2].",
+            "Optimized regolith-handling geometry (clearances, dump angle, lip profile) to reduce clogging, bridging, and wear in granular material flow[cite: 2]."
+        ],
+        tags: ["CAD", "Planetary Robotics", "Mechanism Design"]
+    },
+    {
+        role: "Robotics Systems Intern",
+        company: "xTerra Robotics",
+        duration: "June 2025 - August 2025",
+        location: "Kanpur, India",
+        description: "Created scripts and control stacks for robotic manipulators[cite: 2].",
+        bullets: [
+            "Designed and fabricated an aluminum base plate and 3D-printed arm mount for a 6-DOF robot arm, improving robot integration safety and mechanical stiffness[cite: 2].",
+            "Developed Python scripts for coordinate transforms and trajectory planning of a 6-DOF manipulator, enabling smooth joint-space motion in simulation and hardware[cite: 2].",
+            "Tuned PD/PID controllers in the ROS control stack and validated tracking repeatability and accuracy against ISO 9283 robotics performance tests[cite: 2].",
+            "Authored interactive lab-style robotics experiments and documentation to teach robot kinematics, control, and system integration using real hardware[cite: 2]."
+        ],
+        tags: ["ROS", "Python", "Kinematics", "Hardware Integration"]
+    },
+    {
+        role: "Student Intern (AI-Driven Screening)",
+        company: "India Health Action Trust",
+        duration: "Apr 2022 - Jun 2024",
+        location: "Uttar Pradesh, India",
+        description: "Co-developed the Roshni cataract screening app with AI specialists and healthcare professionals.",
+        bullets: [
+            "Co-authored research study proposal concept note, securing ethics approval from King George's Medical University.",
+            "Collaborated to develop mobile application wireframes for extensive field data collection.",
+            "Led User Acceptance Testing (UAT) in Barabanki district, training ASHAs and conducting door-to-door screening.",
+            "Conducted training sessions for state-level master trainers, facilitating rollout across 75 districts."
+        ],
+        tags: ["Python", "Machine Learning", "SQL", "Healthcare AI"]
+    },
+    {
+        role: "Event Coordinator",
+        company: "Study Hall",
+        duration: "Jul 2023 - Jul 2024",
+        location: "Lucknow, India",
+        description: "Led a multidisciplinary team to organize large-scale academic events.",
+        bullets: [
+            "Conceptualized and organized a two-day Model United Nations (MUN) conference.",
+            "Secured financial and in-kind support through local business outreach and sponsorships.",
+            "Managed event budgets, Instagram marketing campaigns, and presentation logistics."
+        ],
+        tags: ["Budget Management", "Marketing", "Communication"]
+    }
+];
+
+const PROJECTS_DATABASE = [
+    {
+        id: "ros2-dwa",
+        title: "ROS 2 DWA Local Navigation Loop",
+        subtitle: "Autonomous Mobile Robot Navigation Algorithm",
+        meta: "Personal Project / Gazebo",
+        summary: "Implemented a custom Dynamic Window Approach (DWA) local planner in Python for a TurtleBot3 Burger[cite: 2].",
+        tags: ["ROS 2", "Python", "Gazebo", "Algorithm Design"],
+        
+        imagePath: "images/ros2-dwa.jpg", 
+        imagePosition: "top", 
+        
+        metrics: [
+            { label: "Platform", value: "TurtleBot3" },
+            { label: "Logic", value: "DWA Planner" },
+            { label: "Framework", value: "ROS 2" }
+        ],
+        notesHtml: `
+            <h3>Algorithm Architecture & Implementation</h3>
+            <p><strong>Navigation Node:</strong> Implemented a custom Dynamic Window Approach (DWA) local planner in Python for a TurtleBot3 Burger, subscribing to /odom and /scan and publishing /cmd_vel for autonomous mobile robot navigation in Gazebo[cite: 2].</p>
+            <p><strong>Trajectory Scoring:</strong> Sampled linear and angular velocities (v, w) within a dynamic window, simulated trajectories, and scored them with goal, heading, obstacle (LaserScan), smoothness, and progress costs[cite: 2].</p>
+            <p><strong>Validation:</strong> Used RViz MarkerArray and logs to debug local planner behavior and velocity command outputs[cite: 2].</p>
+        `
+    },
+    {
+        id: "retrolens",
+        title: "RetroLens Pro X-Adapter",
+        subtitle: "Sustainable Camera Lens Adapter Design",
+        meta: "ME 270: Design for Manufacturability",
+        summary: "Innovative adapter system repurposing disposable camera lenses for modern mirrorless cameras, focusing on sustainable engineering.",
+        tags: ["GD&T", "PETG/Aluminum", "3D Printing", "DFA"],
+        
+        imagePath: "images/retrolens.jpg", 
+        imagePosition: "left", 
+        
+        metrics: [
+            { label: "Cost Reduction", value: "85%" },
+            { label: "Assembly Efficiency", value: "82.2%" },
+            { label: "Part Reduction", value: "60%" }
+        ],
+        notesHtml: `
+            <h3>Engineering & DFA Analysis</h3>
+            <p><strong>Technical Overview:</strong> Redesigned adapter bodies to integrate built-in light sealing mechanisms and mounting tabs. Successfully condensed components down from 5 distinct structural elements to 2 theoretical parts using strict Design for Assembly (DFA) practices.</p>
+            <p><strong>Materials Implementation:</strong> Opted for PETG structures over standard thermoplastics to maintain structural resilience while sourcing pristine optical lenses out of recovered Fujifilm units. Included 6061-T6 Aluminum elements.</p>
+            <p><strong>Financial Impact:</strong> Achieved a target production cost of $13-17 compared to competitors priced at $89-129.</p>
+        `
+    },
+    {
+        id: "fusiondesk",
+        title: "Fusion Desk Ergonomic System",
+        subtitle: "Comprehensive Workspace Solution",
+        meta: "Team Design Project",
+        summary: "Complex ergonomic desk system with integrated laptop stand, storage, and LED lighting demonstrating multi-material design expertise.",
+        tags: ["System Integration", "Multi-Material", "Financial Modeling", "SolidWorks"],
+        
+        imagePath: "images/fusiondesk.jpg",
+        imagePosition: "right", 
+        
+        metrics: [
+            { label: "Total Components", value: "29 Parts" },
+            { label: "Tooling Investment", value: "$321k" },
+            { label: "Total Mfg Cost", value: "$859.07" }
+        ],
+        notesHtml: `
+            <h3>Multi-Material System Architecture</h3>
+            <p><strong>System Scope:</strong> Developed an enterprise-grade multi-material ergonomic system utilizing Aluminum (ANSI 1050A, 6061), Steel (AISI 1010), and Polycarbonate structures.</p>
+            <p><strong>Optimization Modeling:</strong> Handled component-level financial structures mapping tooling investments against future production scale. Identified a 56% potential cost reduction through strategic material substitutions (e.g., substituting wood for specific polycarbonate desktop elements).</p>
+            <p><strong>Manufacturing Processes:</strong> Designed specifically for sheet metal forming, plastic molding, and standard stock machining.</p>
+        `
+    },
+    {
+        id: "seaguardian",
+        title: "SeaGuardian Drone System",
+        subtitle: "Semi-Autonomous Lifeguard Rescue UAV",
+        meta: "Illinois Design Challenge",
+        summary: "Conceptual CAD design for a waterproof search-and-rescue quadcopter featuring AI thermal drowning detection and payload deployment.",
+        tags: ["CAD Prototyping", "Thermal AI", "VTOL Design", "Aerospace"],
+        
+        imagePath: "images/seaguardian.jpg",
+        imagePosition: "top", 
+        
+        metrics: [
+            { label: "Drop Accuracy", value: "1-3 ft" },
+            { label: "Detection", value: "Thermal AI" },
+            { label: "Frame", value: "Carbon Fiber" }
+        ],
+        notesHtml: `
+            <h3>Aerospace Systems Prototyping</h3>
+            <p><strong>Design Constraints:</strong> Competed in a 2-day rapid CAD modeling competition to architect a complete UAV system. Solved center of gravity challenges by strategically positioning heavy thermal camera payloads opposite to high-capacity 18650 battery banks.</p>
+            <p><strong>Water Surface Detection:</strong> Rejected standard sonar/LiDAR solutions due to high water surface reflection errors. Implemented FLIR thermal imaging paired with computer vision to track disruption patterns in the water.</p>
+            <p><strong>Payload Deployment:</strong> Designed a rigid tail system with servo-controlled droppers to deploy collapsible high-density life preservers with strict 1-3 feet accuracy targets.</p>
+        `
+    }
+];
+
+const SKILLS_DATABASE = [
+    {
+        category: "Programming & Systems",
+        skills: ["ROS 2", "Python", "C++", "Gazebo", "PlotJuggler", "Rviz", "Linux"]
+    },
+    {
+        category: "Engineering & CAD",
+        skills: ["SolidWorks", "Fusion 360", "DFA / DFM", "GD&T", "FEA Analysis", "Additive Manufacturing"]
+    },
+    {
+        category: "Core Engineering Coursework",
+        skills: [
+            "ME 451: Manufacturing & Automation", 
+            "ME 330: Materials", 
+            "ME 270: Mechanics", 
+            "ECE 205/206: Circuits & Electronics", 
+            "STAT 400: Statistics", 
+            "ME 170: Design & CAD", 
+            "ME 200: Thermodynamics"
+        ]
+    },
+    {
+        category: "Analysis & Clinical",
+        skills: ["Technical Writing", "Data Collection", "User Acceptance Testing", "Wireframing"]
+    }
+];
+
+// ==========================================
+// ⚙️ 2. CORE ENGINE (DO NOT EDIT BELOW)
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderExperience();
+    renderProjects();
+    renderSkills();
+});
+
+// --- RENDER EXPERIENCES ---
+function renderExperience() {
+    const container = document.getElementById('experience-timeline');
+    if (!container) return;
+
+    let html = '';
+    EXPERIENCE_DATABASE.forEach(exp => {
+        const tagsHtml = exp.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+        const bulletsHtml = exp.bullets.map(bullet => `<li>${bullet}</li>`).join('');
+        
+        html += `
+            <div class="timeline-item">
+                <div class="time-meta">${exp.duration} | ${exp.location}</div>
+                <div class="timeline-card">
+                    <h3>${exp.role}</h3>
+                    <h4>${exp.company}</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem; font-style: italic;">${exp.description}</p>
+                    <ul>${bulletsHtml}</ul>
+                    <div class="p-tags" style="margin-top: 1rem;">${tagsHtml}</div>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
 }
 
-function $$(selector, parent = document) {
-    return Array.from(parent.querySelectorAll(selector));
+// --- RENDER PROJECTS ---
+function renderProjects() {
+    const container = document.getElementById('project-container');
+    if (!container) return;
+
+    let html = '';
+    PROJECTS_DATABASE.forEach(project => {
+        const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+        
+        html += `
+            <div class="project-card" onclick="openModal('${project.id}')">
+                <div class="p-img-wrapper">
+                    <!-- Failsafe if image is missing -->
+                    <div class="p-img-placeholder">EV</div>
+                </div>
+                <div class="p-body">
+                    <span class="time-meta" style="margin-bottom: 0.5rem; display: block;">${project.meta}</span>
+                    <h3>${project.title}</h3>
+                    <p>${project.summary}</p>
+                    <div class="p-tags">${tagsHtml}</div>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    /* ----------------------------- Navigation ----------------------------- */
-    const navToggle = $('.nav-toggle');
-    const navMenu = $('.nav-menu');
-    const navLinks = $$('.nav-link');
+// --- RENDER SKILLS ---
+function renderSkills() {
+    const container = document.getElementById('skills-container');
+    if (!container) return;
 
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
+    let html = '';
+    SKILLS_DATABASE.forEach(group => {
+        const skillsHtml = group.skills.map(skill => `<li>${skill}</li>`).join('');
+        html += `
+            <div class="skill-category">
+                <h3>${group.category}</h3>
+                <ul class="skill-list">${skillsHtml}</ul>
+            </div>
+        `;
     });
+    container.innerHTML = html;
+}
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').slice(1);
-            const targetEl = document.getElementById(targetId);
-            if (targetEl) {
-                const offset = targetEl.offsetTop - 70; // compensate for fixed navbar
-                window.scrollTo({ top: offset, behavior: 'smooth' });
-            }
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        });
-    });
+// ==========================================
+// 🪟 3. MODAL INTERACTION SYSTEM
+// ==========================================
 
-    function highlightNav() {
-        const sections = $$('section');
-        let current = '';
-        sections.forEach(section => {
-            const top = section.offsetTop - 100;
-            const height = section.offsetHeight;
-            if (scrollY >= top && scrollY < top + height) {
-                current = section.id;
-            }
-        });
-        navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href').slice(1) === current);
-        });
+const modal = document.getElementById('project-modal');
+const modalBody = document.getElementById('modal-dynamic-body');
+
+function openModal(projectId) {
+    const project = PROJECTS_DATABASE.find(p => p.id === projectId);
+    if (!project) return;
+
+    // Generate Metrics row
+    const metricsHtml = project.metrics.map(m => `
+        <div class="metric-box">
+            <span>${m.value}</span>
+            <label>${m.label}</label>
+        </div>
+    `).join('');
+
+    // Construct Inner Layout based on configuration (top, left, or right)
+    let layoutClass = "layout-top";
+    if (project.imagePosition === "left") layoutClass = "layout-split reverse";
+    if (project.imagePosition === "right") layoutClass = "layout-split";
+
+    let innerHtml = `
+        <div class="modal-header-meta">
+            <h2>${project.title}</h2>
+            <p>${project.subtitle}</p>
+        </div>
+        <div class="${layoutClass}">
+            <div class="modal-text-panel">
+                <div class="metric-row">${metricsHtml}</div>
+                <div class="modal-notes">
+                    ${project.notesHtml}
+                </div>
+            </div>
+            <div class="modal-image-panel">
+                <img src="${project.imagePath}" alt="${project.title} visualization" onerror="this.style.display='none'">
+            </div>
+        </div>
+    `;
+
+    modalBody.innerHTML = innerHtml;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Restore scrolling
+    // Clear out contents after animation finishes to prevent ghosting
+    setTimeout(() => {
+        modalBody.innerHTML = '';
+    }, 300);
+}
+
+// Close modal if user hits Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
     }
-
-    /* --------------------------- Scroll Animations -------------------------- */
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    $$('.experience-card, .project-card, .skill-category').forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
-
-    /* ------------------------------ Charts --------------------------------- */
-    const chartColors = ['#1FB8CD', '#FFC185', '#B4413C', '#ECEBD5', '#5D878F', '#DB4545', '#D2BA4C'];
-
-    // RetroLens Cost Comparison Chart
-    const retrolensCostCtx = $('#retrolensCostChart');
-    if (retrolensCostCtx) {
-        new Chart(retrolensCostCtx, {
-            type: 'bar',
-            data: {
-                labels: ['RetroLens Pro', 'GIZMON Wtulens', 'KEKS LENS'],
-                datasets: [{
-                    label: 'Cost ($)',
-                    data: [15, 129, 89], // Using average for RetroLens
-                    backgroundColor: [chartColors[0], chartColors[1], chartColors[2]],
-                    borderColor: [chartColors[0], chartColors[1], chartColors[2]],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Cost Comparison: Competitive Analysis'
-                    },
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Cost (USD)'
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    // RetroLens Assembly Efficiency Chart
-    const retrolensEfficiencyCtx = $('#retrolensEfficiencyChart');
-    if (retrolensEfficiencyCtx) {
-        new Chart(retrolensEfficiencyCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Original Design', 'Improved Design'],
-                datasets: [{
-                    label: 'Assembly Efficiency (%)',
-                    data: [34.5, 82.2],
-                    backgroundColor: [chartColors[2], chartColors[0]],
-                    borderColor: [chartColors[2], chartColors[0]],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Assembly Efficiency Improvement'
-                    },
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        title: {
-                            display: true,
-                            text: 'Efficiency (%)'
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    // Fusion Desk Cost Breakdown Chart
-    const fusionDeskCostCtx = $('#fusionDeskCostChart');
-    if (fusionDeskCostCtx) {
-        new Chart(fusionDeskCostCtx, {
-            type: 'doughnut',
-            data: {
-                labels: [
-                    'Desktop (56.3%)',
-                    'Base/Structure (22.8%)',
-                    'Other Components (10.7%)',
-                    'Drawer System (4.3%)',
-                    'Lighting System (4.0%)',
-                    'Laptop Stand (1.5%)',
-                    'Hardware/Fasteners (0.6%)'
-                ],
-                datasets: [{
-                    data: [483.71, 195.48, 92.22, 36.61, 34.26, 12.46, 4.83],
-                    backgroundColor: chartColors,
-                    borderColor: '#fff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Fusion Desk Cost Breakdown ($859.07 Total)'
-                    },
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 15,
-                            usePointStyle: true
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const label = context.label || '';
-                                const value = context.parsed;
-                                const percentage = ((value / 859.07) * 100).toFixed(1);
-                                return `${label}: $${value} (${percentage}%)`;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    /* ------------------------------ Notification --------------------------- */
-    function notify(message, type = 'info') {
-        const existing = $('.notification');
-        if (existing) existing.remove();
-        const div = document.createElement('div');
-        div.className = `notification status status--${type}`;
-        div.textContent = message;
-        Object.assign(div.style, {
-            position: 'fixed',
-            top: '90px',
-            right: '20px',
-            zIndex: 2000,
-            maxWidth: '400px',
-            padding: '16px 20px',
-            borderRadius: '8px',
-            fontWeight: '500',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-            transform: 'translateX(100%)',
-            transition: 'transform 0.3s ease-out'
-        });
-        document.body.appendChild(div);
-        setTimeout(() => { div.style.transform = 'translateX(0)'; }, 50);
-        setTimeout(() => {
-            div.style.transform = 'translateX(100%)';
-            setTimeout(() => div.remove(), 300);
-        }, 5000);
-    }
-
-    /* ----------------------------- On Scroll ------------------------------- */
-    function onScroll() {
-        highlightNav();
-        const navbar = $('.navbar');
-        if (scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(255,255,255,0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
-        } else {
-            navbar.style.backgroundColor = 'var(--color-surface)';
-            navbar.style.backdropFilter = 'none';
-        }
-    }
-
-    /* ---------------------------- Email Actions ---------------------------- */
-    const emailLinks = $$('a[href^="mailto:"]');
-    emailLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            // Allow default email behavior to proceed
-            notify('Opening email client...', 'info');
-        });
-    });
-
-    /* -------------------------- LinkedIn Actions --------------------------- */
-    const linkedinLinks = $$('a[href*="linkedin.com"]');
-    linkedinLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            notify('Opening LinkedIn profile in new tab...', 'info');
-        });
-    });
-
-    /* ------------------------- Smooth Scrolling ---------------------------- */
-    // Enhanced smooth scrolling for all internal links
-    $$('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').slice(1);
-            const targetEl = document.getElementById(targetId);
-            if (targetEl) {
-                const offset = targetEl.offsetTop - 70;
-                window.scrollTo({ top: offset, behavior: 'smooth' });
-            }
-        });
-    });
-
-    /* -------------------------- Accessibility ---------------------------- */
-    // Add keyboard navigation support
-    navLinks.forEach(link => {
-        link.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                link.click();
-            }
-        });
-    });
-
-    // Focus management for mobile menu
-    navToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            navToggle.click();
-        }
-    });
-
-    /* -------------------------- Performance ---------------------------- */
-    // Debounce scroll events for better performance
-    let scrollTimeout;
-    function debouncedScroll() {
-        if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
-        }
-        scrollTimeout = setTimeout(onScroll, 10);
-    }
-
-    window.addEventListener('scroll', debouncedScroll);
-    onScroll(); // Initial call
-    document.body.classList.add('loaded');
-
-    /* -------------------------- Project Cards ---------------------------- */
-    // Add interaction feedback for project cards
-    $$('.project-card, .experience-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-2px)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
-    });
-
-    /* -------------------------- Skills Animation -------------------------- */
-    // Add staggered animation for skills
-    const skillCategories = $$('.skill-category');
-    skillCategories.forEach((category, index) => {
-        category.style.animationDelay = `${index * 0.1}s`;
-    });
-
-    /* -------------------------- Chart Loading ---------------------------- */
-    // Add loading states for charts
-    const chartContainers = $$('.chart-container');
-    chartContainers.forEach(container => {
-        const canvas = container.querySelector('canvas');
-        if (canvas) {
-            canvas.style.opacity = '0';
-            canvas.style.transition = 'opacity 0.5s ease-in';
-            
-            // Show chart after a brief delay to allow Chart.js to render
-            setTimeout(() => {
-                canvas.style.opacity = '1';
-            }, 500);
-        }
-    });
-
-    /* ------------------------ Project Card Interactions ------------------- */
-    // Enhanced project card interactions
-    $$('.project-card').forEach(card => {
-        const header = card.querySelector('.project-header');
-        const content = card.querySelector('.project-content');
-        
-        if (header && content) {
-            header.addEventListener('click', () => {
-                // Add subtle visual feedback on header click
-                header.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    header.style.transform = 'scale(1)';
-                }, 150);
-            });
-        }
-    });
-
-    console.log('Portfolio website loaded successfully with interactive charts!');
 });
